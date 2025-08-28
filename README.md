@@ -16,9 +16,9 @@ fn world() -> VirtualWorld {
     VirtualWorld::new()
       .children([
         Girl::new()
-          .hair_color(HairColor::black)
-          .skin_color(SkinColor::yellow)
-          .figure(HumanFigure::WellProportioned)
+          .hair_color(HairColor::Black)
+          .skin_color(SkinColor::Yellow)
+          .figure(GirlFigure::WellProportioned)
           .appearance(GirlAppearance::Beautiful)
           .every_morning([say_hi, prepare_breakfast]),
       ])
