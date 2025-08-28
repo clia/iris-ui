@@ -1,7 +1,44 @@
 # iris-ui
 Pure Rust UI framework
 
-## Example
+## Example: inner text clock
+
+```rust
+//! A simple little clock that updates the time every few milliseconds.
+
+use iris_ui::prelude::*;
+
+fn main() {
+    iris_ui::launch(world);
+}
+
+fn world() -> VirtualWorld {
+    VirtualWorld::new()
+      .children([
+        Board::new()
+          .width(VIEWPORT.width)
+          .height(VIEWPORT.height)
+          .horizontal_align(HorizontalAlign::Center)
+          .vertical_align(VerticalAlign::Middle)
+          .children([
+            Card::new()
+              .children([
+                Row::new()
+                  .children([
+                    Text::from_str("Carpe diem 🎉"),
+                  ]),
+                Row::new()
+                  .children([
+                    TextTimer::new()
+                      .format("%H:%M:%S"),
+                  ]),
+              ]),
+          ]),
+      ])
+}
+```
+
+## Example: text clock updated by outer world
 
 ```rust
 //! A simple little clock that updates the time every few milliseconds.
@@ -11,10 +48,10 @@ use iris_ui::prelude::*;
 use web_time::Instant;
 
 fn main() {
-    iris_ui::launch(app);
+    iris_ui::launch(world);
 }
 
-fn app() -> App {
+fn world() -> VirtualWorld {
     let mut millis = use_signal(|| 0);
 
     use_future(move || async move {
@@ -38,10 +75,11 @@ fn app() -> App {
         millis() % 1000
     );
 
-    App::new()
+    VirtualWorld::new()
       .children([
-        Page::new()
-          .fill_mode(FillMode::Full)
+        Board::new()
+          .width(VIEWPORT.width)
+          .height(VIEWPORT.height)
           .horizontal_align(HorizontalAlign::Center)
           .vertical_align(VerticalAlign::Middle)
           .children([
@@ -57,6 +95,28 @@ fn app() -> App {
                   ]),
               ]),
           ]),
+      ])
+}
+```
+
+## Example: a girl
+
+```rust
+//! A girl.
+
+use iris_ui::prelude::*;
+
+fn main() {
+    iris_ui::launch(world);
+}
+
+fn world() -> VirtualWorld {
+    VirtualWorld::new()
+      .children([
+        Girl::new()
+          .hair_color(HairColor::black)
+          .skin_color(SkinColor::yellow)
+          .figure(HumanFigure::WellProportioned),
       ])
 }
 ```
