@@ -1,6 +1,30 @@
 # iris-ui
 Pure Rust UI framework
 
+## Example: a girl
+
+```rust
+//! A girl.
+
+use iris_ui::prelude::*;
+
+fn main() {
+    iris_ui::launch(world);
+}
+
+fn world() -> VirtualWorld {
+    VirtualWorld::new()
+      .children([
+        Girl::new()
+          .hair_color(HairColor::black)
+          .skin_color(SkinColor::yellow)
+          .figure(HumanFigure::WellProportioned)
+          .appearance(GirlAppearance::Beautiful)
+          .every_morning([say_hi, prepare_breakfast]),
+      ])
+}
+```
+
 ## Example: inner text clock
 
 ```rust
@@ -95,28 +119,6 @@ fn world() -> VirtualWorld {
                   ]),
               ]),
           ]),
-      ])
-}
-```
-
-## Example: a girl
-
-```rust
-//! A girl.
-
-use iris_ui::prelude::*;
-
-fn main() {
-    iris_ui::launch(world);
-}
-
-fn world() -> VirtualWorld {
-    VirtualWorld::new()
-      .children([
-        Girl::new()
-          .hair_color(HairColor::black)
-          .skin_color(SkinColor::yellow)
-          .figure(HumanFigure::WellProportioned),
       ])
 }
 ```
