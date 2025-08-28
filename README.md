@@ -1,6 +1,8 @@
 # iris-ui
 Pure Rust UI framework
 
+Philosophy: The UI is a projection of a virtual world onto the screen.
+
 ## Example: a girl
 
 ```rust
