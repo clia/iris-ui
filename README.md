@@ -14,8 +14,8 @@ fn main() {
     iris_ui::launch(world);
 }
 
-fn world() -> VirtualWorld {
-    VirtualWorld::new()
+fn world() -> World {
+    World::new()
       .children([
         Girl::new()
           .hair_color(HairColor::Black)
@@ -38,8 +38,8 @@ fn main() {
     iris_ui::launch(world);
 }
 
-fn world() -> VirtualWorld {
-    VirtualWorld::new()
+fn world() -> World {
+    World::new()
       .children([
         Board::new()
           .width(VIEWPORT.width)
@@ -77,7 +77,7 @@ fn main() {
     iris_ui::launch(world);
 }
 
-fn world() -> VirtualWorld {
+fn world() -> World {
     let mut millis = use_signal(|| 0);
 
     use_future(move || async move {
@@ -101,7 +101,7 @@ fn world() -> VirtualWorld {
         millis() % 1000
     );
 
-    VirtualWorld::new()
+    World::new()
       .children([
         Board::new()
           .width(VIEWPORT.width)
