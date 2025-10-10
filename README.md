@@ -16,7 +16,7 @@ fn main() {
 
 fn world() -> World {
     World::new()
-      .children([
+      .content([
         Girl::new()
           .hair_color(HairColor::Black)
           .skin_color(SkinColor::Yellow)
@@ -40,7 +40,7 @@ fn main() {
 
 fn world() -> World {
     World::new()
-      .children([
+      .content([
         Board::new()
           .width(VIEWPORT.width)
           .height(VIEWPORT.height)
@@ -102,7 +102,7 @@ fn world() -> World {
     );
 
     World::new()
-      .children([
+      .content([
         Board::new()
           .width(VIEWPORT.width)
           .height(VIEWPORT.height)
