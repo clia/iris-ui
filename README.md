@@ -1,4 +1,3 @@
-<img width="956" height="1004" alt="image" src="https://github.com/user-attachments/assets/5de29002-4dcc-4f45-a4c5-4bfee55f306e" /># iris-ui
 Pure Rust UI framework
 
 Philosophy: The UI is a projection of a virtual world onto the screen.
