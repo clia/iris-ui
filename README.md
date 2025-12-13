@@ -1,4 +1,4 @@
-# iris-ui
+<img width="956" height="1004" alt="image" src="https://github.com/user-attachments/assets/5de29002-4dcc-4f45-a4c5-4bfee55f306e" /># iris-ui
 Pure Rust UI framework
 
 Philosophy: The UI is a projection of a virtual world onto the screen.
@@ -16,7 +16,7 @@ fn main() {
 
 fn world() -> World {
     World::new()
-      .content([
+      .content(vec![
         Girl::new()
           .hair_color(HairColor::Black)
           .skin_color(SkinColor::Yellow)
@@ -24,6 +24,32 @@ fn world() -> World {
           .appearance(GirlAppearance::Beautiful)
           .every_morning([say_hi, prepare_breakfast]),
       ])
+}
+```
+
+```rust
+//! A girl.
+
+use iris_ui::prelude::*;
+
+fn main() {
+    iris_ui::launch(world);
+}
+
+fn world() -> World {
+    World {
+      content: vec![
+        Girl {
+          hair_color: HairColor::Black,
+          skin_color: SkinColor::Yellow,
+          figure: GirlFigure::Slim,
+          appearance: GirlAppearance::Beautiful,
+          every_morning: vec![say_hi, prepare_breakfast],
+          ..default()
+        },
+      ],
+      ..default()
+    }
 }
 ```
 
