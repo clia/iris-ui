@@ -37,20 +37,28 @@ fn main() {
 
 fn world() -> World {
     World {
-      content: vec![ lovely_girl() ],
-      ..default()
+        content: vec![lovely_girl()],
+        ..default()
     }
 }
 
 fn lovely_girl() -> Girl {
     Girl {
-      hair_color: HairColor::Black,
-      skin_color: SkinColor::Yellow,
-      figure: GirlFigure::Slim,
-      appearance: GirlAppearance::Beautiful,
-      every_morning: vec![say_hi, prepare_breakfast],
-      ..default()
-    },
+        hair_color: HairColor::Black,
+        skin_color: SkinColor::Yellow,
+        figure: GirlFigure::Slim,
+        appearance: GirlAppearance::Beautiful,
+        every_morning: vec![say_hi, prepare_breakfast],
+        ..default()
+    }
+}
+
+fn say_hi() {
+    println!("Hi!");
+}
+
+fn prepare_breakfast() {
+    println!("Preparing breakfast...");
 }
 ```
 
