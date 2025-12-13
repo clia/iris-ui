@@ -27,7 +27,7 @@ fn world() -> World {
 ```
 
 ```rust
-//! A girl.
+//! A lovely girl.
 
 use iris_ui::prelude::*;
 
@@ -37,18 +37,20 @@ fn main() {
 
 fn world() -> World {
     World {
-      content: vec![
-        Girl {
-          hair_color: HairColor::Black,
-          skin_color: SkinColor::Yellow,
-          figure: GirlFigure::Slim,
-          appearance: GirlAppearance::Beautiful,
-          every_morning: vec![say_hi, prepare_breakfast],
-          ..default()
-        },
-      ],
+      content: vec![ lovely_girl() ],
       ..default()
     }
+}
+
+fn lovely_girl() -> Girl {
+    Girl {
+      hair_color: HairColor::Black,
+      skin_color: SkinColor::Yellow,
+      figure: GirlFigure::Slim,
+      appearance: GirlAppearance::Beautiful,
+      every_morning: vec![say_hi, prepare_breakfast],
+      ..default()
+    },
 }
 ```
 
