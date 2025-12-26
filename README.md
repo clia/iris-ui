@@ -31,34 +31,36 @@ fn world() -> World {
 
 use iris_ui::prelude::*;
 
-fn main() {
-    iris_ui::launch(world);
+struct LovelyGirl {
+    girl: Girl,
+}
+
+impl Default for LovelyGirl {
+    fn default() -> Self {
+        Self {
+            girl: Girl {
+                hair: Black,
+                skin: Yellow,
+                body: Slim,
+                look: Beautiful,
+                every_morning: [
+                    SayHi,
+                    PrepareBreakfast,
+                ]
+                .into(),
+            },
+        }
+    }
 }
 
 fn world() -> World {
     World {
-        content: vec![lovely_girl()],
-        ..default()
+        root: LovelyGirl::default(),
     }
 }
 
-fn lovely_girl() -> Girl {
-    Girl {
-        hair_color: HairColor::Black,
-        skin_color: SkinColor::Yellow,
-        figure: GirlFigure::Slim,
-        appearance: GirlAppearance::Beautiful,
-        every_morning: vec![say_hi, prepare_breakfast],
-        ..default()
-    }
-}
-
-fn say_hi() {
-    println!("Hi!");
-}
-
-fn prepare_breakfast() {
-    println!("Preparing breakfast...");
+fn main() {
+    iris_ui::launch(world);
 }
 ```
 
