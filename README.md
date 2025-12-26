@@ -2,33 +2,9 @@ Pure Rust UI framework
 
 Philosophy: The UI is a projection of a virtual world onto the screen.
 
-## Example: a girl
+## Example: A lovely girl
 
 ```rust
-//! A girl.
-
-use iris_ui::prelude::*;
-
-fn main() {
-    iris_ui::launch(world);
-}
-
-fn world() -> World {
-    World::new()
-      .content(vec![
-        Girl::new()
-          .hair_color(HairColor::Black)
-          .skin_color(SkinColor::Yellow)
-          .figure(GirlFigure::Slim)
-          .appearance(GirlAppearance::Beautiful)
-          .every_morning([say_hi, prepare_breakfast]),
-      ])
-}
-```
-
-```rust
-//! A lovely girl.
-
 use iris_ui::prelude::*;
 
 struct LovelyGirl {
