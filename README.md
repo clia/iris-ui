@@ -24,6 +24,7 @@ impl Default for LovelyGirl {
                     PrepareBreakfast,
                 ]
                 .into(),
+                ..default()
             },
         }
     }
@@ -32,6 +33,7 @@ impl Default for LovelyGirl {
 fn world() -> World {
     World {
         root: LovelyGirl::default(),
+        ..default()
     }
 }
 
