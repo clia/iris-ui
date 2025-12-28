@@ -11,8 +11,8 @@ struct LovelyGirl {
     girl: Girl,
 }
 
-impl Default for LovelyGirl {
-    fn default() -> Self {
+impl IntoWidget for LovelyGirl {
+    fn into_widget() -> Widget {
         Self {
             girl: Girl {
                 hair: BLACK,
@@ -25,13 +25,13 @@ impl Default for LovelyGirl {
                 ],
                 ..default()
             },
-        }
+        }.into()
     }
 }
 
 fn world() -> World {
     World {
-        root: LovelyGirl::default(),
+        root: LovelyGirl,
         ..default()
     }
 }
