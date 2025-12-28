@@ -49,33 +49,33 @@ fn main() {
 
 use iris_ui::prelude::*;
 
-fn main() {
-    iris_ui::launch(world);
+fn world() -> World {
+    World {
+        root: Board {
+            width: VIEWPORT_WIDTH,
+            height: VIEWPORT_HEIGHT,
+            h_align: CENTER,
+            v_align: MIDDLE,
+            children: vec![Card {
+                children: vec![
+                    Row {
+                        children: vec![Text::from_str("Carpe diem 🎉")],
+                        ..default()
+                    },
+                    Row {
+                        children: vec![TextTimer::with_format("%H:%M:%S")],
+                        ..default()
+                    },
+                ],
+                ..default()
+            }],
+            ..default()
+        },
+    }
 }
 
-fn world() -> World {
-    World::new()
-      .content([
-        Board::new()
-          .width(VIEWPORT.width)
-          .height(VIEWPORT.height)
-          .horizontal_align(HorizontalAlign::Center)
-          .vertical_align(VerticalAlign::Middle)
-          .children([
-            Card::new()
-              .children([
-                Row::new()
-                  .children([
-                    Text::from_str("Carpe diem 🎉"),
-                  ]),
-                Row::new()
-                  .children([
-                    TextTimer::new()
-                      .format("%H:%M:%S"),
-                  ]),
-              ]),
-          ]),
-      ])
+fn main() {
+    iris_ui::launch(world);
 }
 ```
 
