@@ -15,15 +15,14 @@ impl Default for LovelyGirl {
     fn default() -> Self {
         Self {
             girl: Girl {
-                hair: Black,
-                skin: Yellow,
-                body: Slim,
-                look: Beautiful,
-                every_morning: [
+                hair: BLACK,
+                skin: YELLOW,
+                body: SLIM,
+                look: BEAUTIFUL,
+                every_morning: vec![
                     SayHi,
                     PrepareBreakfast,
-                ]
-                .into(),
+                ],
                 ..default()
             },
         }
